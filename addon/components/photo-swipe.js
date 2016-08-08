@@ -73,6 +73,13 @@ export default Em.Component.extend({
     component._initItemGallery();
   }),
 
+  showItemObserver: Em.observer('showItem', function(){
+    let showItem = this.get('showItem');
+    if (showItem) {
+      this.send('launchGallery', showItem);
+    }
+  }),
+
   /**
    * DEPRECATED
    *
