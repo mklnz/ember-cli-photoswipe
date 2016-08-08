@@ -37,11 +37,12 @@ export default Em.Component.extend({
       history: false
     };
 
+    var options = Em.merge(reqOpts, this.get('options') || {});
+
     if (Em.isPresent(getThumbBoundsFn)) {
-      reqOpts.getThumbBoundsFn = getThumbBoundsFn;
+      options.getThumbBoundsFn = getThumbBoundsFn;
     }
 
-    var options = Em.merge(reqOpts, this.get('options') || {});
     this.set('options', options);
   },
 
