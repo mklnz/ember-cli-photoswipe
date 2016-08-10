@@ -125,6 +125,9 @@ export default Em.Component.extend({
 
   actions: {
     launchGallery(item) {
+      if (this.get('beforeLaunch')) {
+        this.get('beforeLaunch')(item);
+      }
       this._buildOptions(this._getBounds.bind(this));
       if (item !== undefined) {
         var index = this.get('items').indexOf(item);
